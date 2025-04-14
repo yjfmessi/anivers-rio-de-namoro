@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Aniversário de Namoro</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffe6f0;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+    img {
+      max-width: 300px;
+      border-radius: 15px;
+      margin: 20px 0;
+    }
+    #contador {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+    .frase {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 30px 0;
+      color: #e60073;
+    }
+    .pergunta {
+      font-size: 20px;
+      margin-top: 40px;
+    }
+    label {
+      display: block;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Nosso Amor</h1>
+
+  <!-- 1. FOTO DO CASAL -->
+  <img src="https://photos.app.goo.gl/sTTBjzkqKRrfbX8B8" alt="Nossa foto linda">
+
+  <!-- 2. CONTADOR DE TEMPO JUNTOS -->
+  <div id="contador"></div>
+
+  <!-- 3. FRASE PERSONALIZADA -->
+  <div class="frase">"Cada segundo ao seu lado é meu momento favorito.Voce faz eu me sentir mais especial a cada dia minha princesa,voce me mostra mais e mais o que é o amor a cada dia,Eu te amo"</div>
+
+  <!-- 4. PERGUNTA COM RESPOSTAS -->
+  <div class="pergunta">
+    Qual dessas é a nossa música?
+    <label><input type="checkbox"> Opção A - Música Poesia acustica 2 </label>
+    <label><input type="checkbox"> Opção B - Música Djavan, Amor puro</label>
+    <label><input type="checkbox"> Opção C - Música Aliança </label>
+  </div>
+
+  <script>
+    // Data de início do namoro (exemplo: 14 de Fevereiro de 2022 às 20:00)
+    const inicio = new Date('2024-07-14T00:00:00');
+
+    function atualizarContador() {
+      const agora = new Date();
+      const diferenca = agora - inicio;
+
+      const segundos = Math.floor(diferenca / 1000);
+      const minutos = Math.floor(segundos / 60);
+      const horas = Math.floor(minutos / 60);
+      const dias = Math.floor(horas / 24);
+      const meses = Math.floor(dias / 30.44);
+
+      const restanteDias = dias % 30.44;
+      const restanteHoras = horas % 24;
+      const restanteMinutos = minutos % 60;
+      const restanteSegundos = segundos % 60;
+
+      document.getElementById("contador").innerHTML =
+        `Estamos juntos há ${meses} meses, ${Math.floor(restanteDias)} dias, ${restanteHoras}h ${restanteMinutos}min ${restanteSegundos}s`;
+    }
+
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+  </script>
+</body>
+</html>
+
+
+---
